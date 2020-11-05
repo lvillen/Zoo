@@ -7,7 +7,7 @@ preciosE = {
     'jubilado': 18.0
     }
 
-totales = {'bebe':0, 'niño':0, 'adulto':0, 'jubilado'=0}
+totales = {'bebe':0, 'niño':0, 'adulto':0, 'jubilado':0}
 
 entradasQ = {
     'bebe': {
