@@ -91,31 +91,7 @@ while edad != 0:
     
     edad = pedirEdad()
 
-    '''
-        if precioE == 0:
-            scree.locate(4,15)
-            print(1)
-            screen.locate(4,19)
-            print(precioE)
-            
-        if precioE == 14:
-            screen.locate(5,15)
-            print(1)
-            screen.locate(5,19)
-            print(precioE)
-            
-        if precioE == 23:
-            screen.locate(6,15)
-            print(1)
-            screen.locate(6,19)
-            print(precioE)
-            
-        if precioE == 18:
-            screen.locate(7,15)
-            print(1)
-            screen.locate(7,19)
-            print(precioE)
-    '''
-
 screen.locate(linea, 12)
 print("Total: {:7.2f} €".format(precioTotal))
+
+print("Lo que sea...")
