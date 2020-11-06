@@ -88,7 +88,9 @@ while edad != 0:
     print(numEntradas[tipoE])
     screen.locate(entradasQ[tipoE]['precioA'][0], entradasQ[tipoE]['precioA'][1])
     print("{:7.2f}€".format(numEntradas[tipoE]*precioE))
-    precioTotal += precioE   
+    precioTotal += precioE
+    screen.locate(9,19)
+    print("Total: {:7.2f} €".format(precioTotal))
     edad = pedirEdad()
 
     '''
@@ -117,6 +119,4 @@ while edad != 0:
             print(precioE)
     '''
 
-linea = 9
-screen.locate(linea, 12)
-print("Total: {:7.2f} €".format(precioTotal))
+screen.locate(11, 1)
