@@ -7,12 +7,12 @@ preciosE = {
     'jubilado': 18.0
     }
 
-totales = {'bebe':0, 'niño':0, 'adulto':0, 'jubilado':0}
+numEntradas = {'bebe':0, 'niño':0, 'adulto':0, 'jubilado':0}
 
 entradasQ = {
     'bebe': {
         'cantidad': (4,15),
-        'precioA': (4,19),
+        'precioA': (4,19)
         },
     'niño': {
         'cantidad': (5,15),
@@ -61,16 +61,16 @@ def pedirEdad():
     return int(edad)
 
 def printScreen():
-    screen.locate(5, 5)
+    screen.locate(4, 5)
     print("Bebé....:   -")
-    screen.locate(6, 5)
+    screen.locate(5, 5)
     print("Niño....:   -")
-    screen.locate(7, 5)
+    screen.locate(6, 5)
     print("Adulto..:   -")
-    screen.locate(8, 5)
+    screen.locate(7, 5)
     print("Jubilado:   -")
     
-    screen.locate(10,8)
+    screen.locate(9,8)
     print("Total...: ")
     
     
@@ -83,12 +83,12 @@ precioTotal = 0 #Negocio
 while edad != 0:
     tipoE = tipoEntrada(edad)
     precioE = preciosE[tipoE]
-    screen.locate(entradasQ[tipoE]['cantidad'][0], entradasQ[tipo]['cantidad'][1])
-    print(1)
+    numEntradas[tipoE] += 1
+    screen.locate(entradasQ[tipoE]['cantidad'][0], entradasQ[tipoE]['cantidad'][1])
+    print(numEntradas[tipoE])
     screen.locate(entradasQ[tipoE]['precioA'][0], entradasQ[tipoE]['precioA'][1])
     print("{:7.2f}€".format(precioE))
-    precioTotal += precioE
-    
+    precioTotal += precioE   
     edad = pedirEdad()
 
     '''
@@ -117,5 +117,6 @@ while edad != 0:
             print(precioE)
     '''
 
+linea = 9
 screen.locate(linea, 12)
 print("Total: {:7.2f} €".format(precioTotal))
