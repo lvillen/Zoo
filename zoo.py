@@ -87,7 +87,7 @@ while edad != 0:
     screen.locate(entradasQ[tipoE]['cantidad'][0], entradasQ[tipoE]['cantidad'][1])
     print(numEntradas[tipoE])
     screen.locate(entradasQ[tipoE]['precioA'][0], entradasQ[tipoE]['precioA'][1])
-    print("{:7.2f}€".format(precioE))
+    print("{:7.2f}€".format(numEntradas[tipoE]*precioE))
     precioTotal += precioE   
     edad = pedirEdad()
 
