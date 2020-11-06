@@ -73,50 +73,30 @@ def printScreen():
     screen.locate(9,8)
     print("Total...: ")
     
-    
-screen.clear()
-printScreen()
+ def main():   
+    screen.clear()
+    printScreen()
 
-edad = pedirEdad()
-precioTotal = 0 #Negocio
-
-while edad != 0:
-    tipoE = tipoEntrada(edad)
-    precioE = preciosE[tipoE]
-    numEntradas[tipoE] += 1
-    screen.locate(entradasQ[tipoE]['cantidad'][0], entradasQ[tipoE]['cantidad'][1])
-    print(numEntradas[tipoE])
-    screen.locate(entradasQ[tipoE]['precioA'][0], entradasQ[tipoE]['precioA'][1])
-    print("{:7.2f}€".format(numEntradas[tipoE]*precioE))
-    precioTotal += precioE
-    screen.locate(9,19)
-    print("Total: {:7.2f} €".format(precioTotal))
     edad = pedirEdad()
+    precioTotal = 0 #Negocio
 
-    '''
-        if precioE == 0:
-            scree.locate(4,15)
-            print(1)
-            screen.locate(4,19)
-            print(precioE)
-            
-        if precioE == 14:
-            screen.locate(5,15)
-            print(1)
-            screen.locate(5,19)
-            print(precioE)
-            
-        if precioE == 23:
-            screen.locate(6,15)
-            print(1)
-            screen.locate(6,19)
-            print(precioE)
-            
-        if precioE == 18:
-            screen.locate(7,15)
-            print(1)
-            screen.locate(7,19)
-            print(precioE)
-    '''
+    while edad != 0:
+        tipoE = tipoEntrada(edad)
+        precioE = preciosE[tipoE]
+        
+        numEntradas[tipoE] += 1
+        
+        screen.locate(entradasQ[tipoE]['cantidad'][0], entradasQ[tipoE]['cantidad'][1])
+        print(numEntradas[tipoE])
+        screen.locate(entradasQ[tipoE]['precioA'][0], entradasQ[tipoE]['precioA'][1])
+        print("{:7.2f}€".format(numEntradas[tipoE]*precioE))
+        
+        precioTotal += precioE
+        screen.locate(9,19)
+        print("Total: {:7.2f} €".format(precioTotal))
 
-screen.locate(11, 1)
+        edad = pedirEdad()
+
+    screen.locate(11, 1)
+
+main()
