@@ -51,30 +51,29 @@ def validaEdad(cadena):
         return False
 
 def pedirEdad():
-    screen.locate(1,1)
-    edad = input("¿Qué edad tienes? ")
+    edad = screen.Input("¿Qué edad tienes? ", 1, 1)
     while validaEdad(edad) == False:
-        print("Edad incorrecta, vuelva a intentarlo")
-        screen.locate(1,1)
-        edad = input("¿Qué edad tienes? ")
+        screen.Format(0, 33, 41)
+        screen.Print("Edad inválida", 25, 1, True)
+        screen.Reset()
+        edad = screen.Input("¿Qué edad tienes? ", 1, 1)
+    
+    screen.clearLine(25)
         
     return int(edad)
 
 def printScreen():
-    screen.locate(4, 5)
-    print("Bebé....:   -")
-    screen.locate(5, 5)
-    print("Niño....:   -")
-    screen.locate(6, 5)
-    print("Adulto..:   -")
-    screen.locate(7, 5)
-    print("Jubilado:   -")
-    
-    screen.locate(9,8)
-    print("Total...: ")
-    
- def main():   
     screen.clear()
+    screen.Print("Bebé....:   -", 4, 5)
+    screen.Print("Niño....:   -", 5, 5)
+    screen.Print("Adulto..:   -", 6, 5)
+    screen.Print("Jubilado:   -", 7, 5)
+
+    screen.Format(1)
+    screen.Print("Total...:   -", 9, 8)
+    screen.Reset(0)
+    
+def main():
     printScreen()
 
     edad = pedirEdad()
@@ -85,15 +84,14 @@ def printScreen():
         precioE = preciosE[tipoE]
         
         numEntradas[tipoE] += 1
-        
-        screen.locate(entradasQ[tipoE]['cantidad'][0], entradasQ[tipoE]['cantidad'][1])
-        print(numEntradas[tipoE])
-        screen.locate(entradasQ[tipoE]['precioA'][0], entradasQ[tipoE]['precioA'][1])
-        print("{:7.2f}€".format(numEntradas[tipoE]*precioE))
-        
+
+        screen.Print(numEntradas[tipoE], entradasQ[tipoE]['cantidad'][0], entradasQ[tipoE]['cantidad'][1])
+        screen.Print("{:7.2f}€".format(numEntradas[tipoE]*precioE), entradasQ[tipoE]['precioA'][0], entradasQ[tipoE]['precioA'][1])
+       
         precioTotal += precioE
-        screen.locate(9,19)
-        print("Total: {:7.2f} €".format(precioTotal))
+        screen.Format(1)
+        screen.Print("{:7.2f} €".format(precioTotal), 9, 19)
+        screen.Reset()
 
         edad = pedirEdad()
 
